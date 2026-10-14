@@ -5,324 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Andrés Méndez — Dev</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:       #0D0F14;
-      --surface:  #151820;
-      --border:   #1E2330;
-      --cyan:     #00C9B1;
-      --cyan-dim: #00C9B122;
-      --text:     #CDD6F4;
-      --muted:    #6C7086;
-      --white:    #F8F8F2;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2.5rem;
-      background: rgba(13,15,20,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem;
-      color: var(--cyan);
-      letter-spacing: 0.05em;
-    }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--cyan); }
-
-    /* ── SECTIONS ── */
-    section {
-      min-height: 100vh;
-      padding: 7rem 2.5rem 4rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    /* ── HERO ── */
-    #inicio {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 8rem;
-    }
-
-    .hero-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--cyan);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-name {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-role {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: var(--cyan);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-desc {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      padding: 0.65rem 1.4rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary {
-      background: var(--cyan);
-      color: var(--bg);
-      font-weight: 700;
-    }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent;
-      color: var(--cyan);
-      border: 1px solid var(--cyan);
-    }
-    .btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
-
-    /* ── SECTION HEADING ── */
-    .sec-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--cyan);
-      letter-spacing: 0.12em;
-      margin-bottom: 0.5rem;
-    }
-    .sec-heading {
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 2.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ── SOBRE MÍ ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    .about-text { color: var(--muted); font-size: 0.97rem; }
-    .about-text p { margin-bottom: 1rem; }
-    .about-facts {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-    }
-    .fact {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-    }
-    .fact:last-child { border-bottom: none; }
-    .fact-label { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
-    .fact-value { color: var(--white); }
-
-    /* ── HABILIDADES ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .skill-group {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem;
-    }
-    .skill-group h4 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--cyan);
-      margin-bottom: 0.8rem;
-      letter-spacing: 0.08em;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      background: var(--cyan-dim);
-      color: var(--cyan);
-      border-radius: 4px;
-      border: 1px solid #00C9B133;
-    }
-
-    /* ── PROYECTOS ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .project-card:hover {
-      border-color: var(--cyan);
-      transform: translateY(-3px);
-    }
-    .project-lang {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--cyan);
-      margin-bottom: 0.5rem;
-    }
-    .project-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── CONTACTO ── */
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .contact-info p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      font-size: 0.97rem;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      color: var(--text);
-      text-decoration: none;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      margin-bottom: 0.8rem;
-      transition: color 0.2s;
-    }
-    .contact-link:hover { color: var(--cyan); }
-    .contact-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--cyan);
-      flex-shrink: 0;
-    }
-
-    .contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .form-field label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .form-field input,
-    .form-field textarea {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem;
-      padding: 0.65rem 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-      resize: none;
-    }
-    .form-field input:focus,
-    .form-field textarea:focus { border-color: var(--cyan); }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      nav { padding: 1rem 1.2rem; }
-      .nav-links { gap: 1rem; }
-      section { padding: 6rem 1.2rem 3rem; }
-      .about-grid,
-      .projects-grid,
-      .contact-wrap { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0D0F14;
-        --surface: #151820;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -360,7 +43,7 @@
     <div class="about-text">
       <p>Tengo 20 años y vivo en San Quintín, Baja California. Estudio Ingeniería en Software en la UABC y me encuentro en baja temporal mientras sigo aprendiendo por mi cuenta.</p>
       <p>Me gusta resolver problemas reales con código. He trabajado con Python, Java, C y C++, y disfruto especialmente el desarrollo web y la automatización.</p>
-      <p>Fuera del código soy paciente, organizado y siempre estoy dispuesto a aprender algo nuevo — dos cosas que creo que van de la mano con ser buen desarrollador.</p>
+      <p>Fuera del código soy paciente, organizado y siempre estoy dispuesto a aprender algo nuevo.</p>
     </div>
     <div class="about-facts">
       <div class="fact">
@@ -459,7 +142,7 @@
     <div class="project-card">
       <p class="project-lang">Python · ReportLab</p>
       <p class="project-name">Generador de PDFs</p>
-      <p class="project-desc">Generador automatizado de documentos PDF — currículums, separadores y etiquetas con diseño profesional.</p>
+      <p class="project-desc">Generador automatizado de documentos PDF con diseño profesional usando Python y ReportLab.</p>
     </div>
   </div>
 </section>
@@ -511,7 +194,6 @@
 </footer>
 
 <script>
-  // Resaltar nav según sección visible
   const sections = document.querySelectorAll('section');
   const links = document.querySelectorAll('.nav-links a');
 
@@ -527,7 +209,6 @@
 
   sections.forEach(s => observer.observe(s));
 
-  // Form — placeholder (sin backend real)
   function enviar(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
