@@ -1,226 +1,309 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<link rel="stylesheet" href="styles.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Andrés Méndez — Dev</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+:root {
+  --bg:       #0D0F14;
+  --surface:  #151820;
+  --border:   #1E2330;
+  --cyan:     #00C9B1;
+  --cyan-dim: #00C9B122;
+  --text:     #CDD6F4;
+  --muted:    #6C7086;
+  --white:    #F8F8F2;
+}
 
-<!-- NAV -->
-<nav>
-  <span class="nav-logo">amh.dev</span>
-  <ul class="nav-links">
-    <li><a href="#inicio">inicio</a></li>
-    <li><a href="#sobre-mi">sobre mí</a></li>
-    <li><a href="#habilidades">skills</a></li>
-    <li><a href="#proyectos">proyectos</a></li>
-    <li><a href="#contacto">contacto</a></li>
-  </ul>
-</nav>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- INICIO -->
-<section id="inicio">
-  <p class="hero-tag">// hola, soy</p>
-  <h1 class="hero-name">Andrés Méndez<br>Huerta</h1>
-  <p class="hero-role">Software Engineering Student</p>
-  <p class="hero-desc">
-    Estudiante de Ingeniería en Software en la UABC. Me apasiona construir cosas con código — desde scripts de Python hasta aplicaciones web. Siempre aprendiendo, siempre construyendo.
-  </p>
-  <div class="hero-btns">
-    <a href="#proyectos" class="btn btn-primary">ver proyectos</a>
-    <a href="#contacto" class="btn btn-outline">contacto</a>
-  </div>
-</section>
+html { scroll-behavior: smooth; }
 
-<!-- SOBRE MÍ -->
-<section id="sobre-mi">
-  <p class="sec-title">// about</p>
-  <h2 class="sec-heading">Sobre mí</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>Tengo 20 años y vivo en San Quintín, Baja California. Estudio Ingeniería en Software en la UABC y me encuentro en baja temporal mientras sigo aprendiendo por mi cuenta.</p>
-      <p>Me gusta resolver problemas reales con código. He trabajado con Python, Java, C y C++, y disfruto especialmente el desarrollo web y la automatización.</p>
-      <p>Fuera del código soy paciente, organizado y siempre estoy dispuesto a aprender algo nuevo.</p>
-    </div>
-    <div class="about-facts">
-      <div class="fact">
-        <span class="fact-label">ubicación</span>
-        <span class="fact-value">San Quintín, B.C.</span>
-      </div>
-      <div class="fact">
-        <span class="fact-label">carrera</span>
-        <span class="fact-value">Ing. en Software</span>
-      </div>
-      <div class="fact">
-        <span class="fact-label">universidad</span>
-        <span class="fact-value">UABC</span>
-      </div>
-      <div class="fact">
-        <span class="fact-label">semestre</span>
-        <span class="fact-value">4° (baja temporal)</span>
-      </div>
-      <div class="fact">
-        <span class="fact-label">inglés</span>
-        <span class="fact-value">A2 — en progreso</span>
-      </div>
-      <div class="fact">
-        <span class="fact-label">github</span>
-        <span class="fact-value">andresmendez52-sys</span>
-      </div>
-    </div>
-  </div>
-</section>
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
 
-<!-- HABILIDADES -->
-<section id="habilidades">
-  <p class="sec-title">// skills</p>
-  <h2 class="sec-heading">Habilidades</h2>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <h4>lenguajes</h4>
-      <div class="skill-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Java</span>
-        <span class="tag">C</span>
-        <span class="tag">C++</span>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>frameworks</h4>
-      <div class="skill-tags">
-        <span class="tag">Django</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>herramientas</h4>
-      <div class="skill-tags">
-        <span class="tag">Git</span>
-        <span class="tag">GitHub</span>
-        <span class="tag">Excel</span>
-        <span class="tag">VS Code</span>
-        <span class="tag">NetBeans</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <h4>conceptos</h4>
-      <div class="skill-tags">
-        <span class="tag">POO</span>
-        <span class="tag">Unit Testing</span>
-        <span class="tag">Mocks</span>
-        <span class="tag">Big O</span>
-        <span class="tag">SQL</span>
-      </div>
-    </div>
-  </div>
-</section>
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: rgba(13,15,20,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
 
-<!-- PROYECTOS -->
-<section id="proyectos">
-  <p class="sec-title">// projects</p>
-  <h2 class="sec-heading">Proyectos</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <p class="project-lang">Python · Streamlit · Gemini AI</p>
-      <p class="project-name">Analizador de Excel con IA</p>
-      <p class="project-desc">App que permite subir un archivo Excel y genera un reporte ejecutivo automático usando Gemini 2.5 Flash.</p>
-    </div>
-    <div class="project-card">
-      <p class="project-lang">Python · python-telegram-bot</p>
-      <p class="project-name">Bot de Telegram con IA</p>
-      <p class="project-desc">Bot conversacional conectado a Gemini AI con filtro de palabras y respuestas inteligentes en tiempo real.</p>
-    </div>
-    <div class="project-card">
-      <p class="project-lang">Python · unittest · mock</p>
-      <p class="project-name">Suite de pruebas unitarias</p>
-      <p class="project-desc">Implementación de pruebas unitarias con mocks y stubs para funciones con input() y print().</p>
-    </div>
-    <div class="project-card">
-      <p class="project-lang">Python · ReportLab</p>
-      <p class="project-name">Generador de PDFs</p>
-      <p class="project-desc">Generador automatizado de documentos PDF con diseño profesional usando Python y ReportLab.</p>
-    </div>
-  </div>
-</section>
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+}
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <p class="sec-title">// contact</p>
-  <h2 class="sec-heading">Contacto</h2>
-  <div class="contact-wrap">
-    <div class="contact-info">
-      <p>¿Tienes un proyecto en mente o quieres hablar sobre código? Mándame un mensaje.</p>
-      <a href="mailto:andresmhuerta4@gmail.com" class="contact-link">
-        <span class="contact-dot"></span>
-        andresmhuerta4@gmail.com
-      </a>
-      <a href="tel:+526161265217" class="contact-link">
-        <span class="contact-dot"></span>
-        +52 616-126-5217
-      </a>
-      <a href="https://github.com/andresmendez52-sys" target="_blank" class="contact-link">
-        <span class="contact-dot"></span>
-        github.com/andresmendez52-sys
-      </a>
-      <a href="https://www.linkedin.com/in/andrés-méndez-huerta-831845406/" target="_blank" class="contact-link">
-        <span class="contact-dot"></span>
-        linkedin / andrés-méndez-huerta
-      </a>
-    </div>
-    <form class="contact-form" onsubmit="enviar(event)">
-      <div class="form-field">
-        <label>nombre</label>
-        <input type="text" placeholder="Tu nombre" required>
-      </div>
-      <div class="form-field">
-        <label>email</label>
-        <input type="email" placeholder="tu@email.com" required>
-      </div>
-      <div class="form-field">
-        <label>mensaje</label>
-        <textarea rows="4" placeholder="Escribe tu mensaje..." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="align-self:flex-start">enviar mensaje</button>
-    </form>
-  </div>
-</section>
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cyan); }
 
-<footer>
-  <p>built by andrés méndez huerta · 2026</p>
-</footer>
+/* ── SECTIONS ── */
+section {
+  min-height: 100vh;
+  padding: 7rem 2.5rem 4rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
 
-<script>
-  const sections = document.querySelectorAll('section');
-  const links = document.querySelectorAll('.nav-links a');
+/* ── HERO ── */
+#inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 8rem;
+}
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(l => l.style.color = '');
-        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        if (active) active.style.color = 'var(--cyan)';
-      }
-    });
-  }, { threshold: 0.4 });
+.hero-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--cyan);
+  margin-bottom: 1.2rem;
+}
 
-  sections.forEach(s => observer.observe(s));
+.hero-name {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
 
-  function enviar(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = 'mensaje enviado ✓';
-    btn.style.background = '#00C9B1';
-    setTimeout(() => {
-      btn.textContent = 'enviar mensaje';
-      e.target.reset();
-    }, 3000);
-  }
-</script>
+.hero-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--cyan);
+  margin-bottom: 1.5rem;
+}
 
-</body>
-</html>
+.hero-desc {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--cyan);
+  color: var(--bg);
+  font-weight: 700;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+}
+.btn-outline:hover { background: var(--cyan-dim); transform: translateY(-1px); }
+
+/* ── SECTION HEADING ── */
+.sec-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+.sec-heading {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── SOBRE MÍ ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.about-text { color: var(--muted); font-size: 0.97rem; }
+.about-text p { margin-bottom: 1rem; }
+.about-facts {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.fact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+.fact:last-child { border-bottom: none; }
+.fact-label { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+.fact-value { color: var(--white); }
+
+/* ── HABILIDADES ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+.skill-group h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.08em;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border-radius: 4px;
+  border: 1px solid #00C9B133;
+}
+
+/* ── PROYECTOS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.project-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+}
+.project-lang {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+}
+.project-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── CONTACTO ── */
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.contact-info p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.97rem;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  margin-bottom: 0.8rem;
+  transition: color 0.2s;
+}
+.contact-link:hover { color: var(--cyan); }
+.contact-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.form-field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.form-field input,
+.form-field textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--cyan); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.2rem; }
+  .nav-links { gap: 1rem; }
+  section { padding: 6rem 1.2rem 3rem; }
+  .about-grid,
+  .projects-grid,
+  .contact-wrap { grid-template-columns: 1fr; }
+}
