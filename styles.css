@@ -67,14 +67,14 @@ section {
   justify-content: center;
   padding-top: 8rem;
 }
-
+/*
 .hero-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
   color: var(--cyan);
   margin-bottom: 1.2rem;
 }
-
+*/
 .hero-name {
   font-family: 'Inter', sans-serif;
   font-size: clamp(2.4rem, 6vw, 4rem);
@@ -82,6 +82,16 @@ section {
   color: var(--white);
   line-height: 1.15;
   margin-bottom: 0.5rem;
+}
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+
+  object-fit: cover;       /* Mantiene la proporción y recorta para llenar */
+  object-position: center; /* Asegura que el centro sea el foco (Opcional pero recomendado) */
 }
 
 .hero-role {
@@ -99,6 +109,12 @@ section {
 }
 
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-header {
+  display: flex;         /* Coloca los elementos hijos en línea horizontal */
+  align-items: center;    /* Alinea verticalmente al centro la foto y el texto */
+  gap: 1.5rem;
+}
 
 .btn {
   font-family: 'JetBrains Mono', monospace;
@@ -306,4 +322,387 @@ footer {
   .about-grid,
   .projects-grid,
   .contact-wrap { grid-template-columns: 1fr; }
+}
+
+
+/*----------------------------------------------------*/
+/*INTERFAZ DE EL APARTADO DE ESTUDIOS PROFECIONALES*/
+/*----------------------------------------------------*/
+
+:root {
+  --bg:       #0D0F14;
+  --surface:  #151820;
+  --border:   #1E2330;
+  --cyan:     #00C9B1;
+  --cyan-dim: #00C9B122;
+  --text:     #CDD6F4;
+  --muted:    #6C7086;
+  --white:    #F8F8F2;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: rgba(13,15,20,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.nav-back {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--cyan); }
+
+/* ── SECTION ── */
+section {
+  min-height: 100vh;
+  padding: 7rem 2.5rem 4rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.sec-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.sec-heading {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--cyan), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.45rem;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+}
+
+.timeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.timeline-card:hover {
+  border-color: var(--cyan);
+  transform: translateX(4px);
+}
+
+.timeline-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--cyan);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-place {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border-radius: 4px;
+  border: 1px solid #00C9B133;
+}
+
+.badge-activo {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  background: #00C9B122;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.2rem; }
+  section { padding: 6rem 1.2rem 3rem; }
+  .timeline { padding-left: 1.5rem; }
+}
+
+
+/*----------------------------------------------------*/
+/*INTERFAZ DE EL APARTADO DE ESTUDIOS PROFECIONALES*/
+/*----------------------------------------------------*/
+
+:root {
+  --bg:       #0D0F14;
+  --surface:  #151820;
+  --border:   #1E2330;
+  --cyan:     #00C9B1;
+  --cyan-dim: #00C9B122;
+  --text:     #CDD6F4;
+  --muted:    #6C7086;
+  --white:    #F8F8F2;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: rgba(13,15,20,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.nav-back {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--cyan); }
+
+/* ── SECTION ── */
+section {
+  min-height: 100vh;
+  padding: 7rem 2.5rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sec-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.sec-heading {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sec-sub {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+/* ── GRID ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+/* ── CARD ── */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.project-icon {
+  font-size: 1.6rem;
+}
+
+.project-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.project-link:hover { color: var(--cyan); }
+
+.project-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border-radius: 4px;
+  border: 1px solid #00C9B133;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.2rem; }
+  section { padding: 6rem 1.2rem 3rem; }
+  .projects-grid { grid-template-columns: 1fr; }
 }
